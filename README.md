@@ -7,16 +7,7 @@ React Component to render asynchronously.
 ```jsx
 import React, { PropTypes } from 'react';
 import AsyncAwait from 'react-async-await';
-
-const Example = ({ title }) => <div>{ title }</div>;
-
-Example.propTypes = {
-  title: PropTypes.string
-};
-
-const myAsyncFunc = () => new Promise(resolve => {
-  setTimeout(() => resolve('Hello world'), 3000);
-});
+import Example from './Example';
 
 const Demo = () => (
   <AsyncAwait>
