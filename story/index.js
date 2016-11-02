@@ -44,7 +44,16 @@ const TryCatch = () => (
   </AsyncAwait>
 );
 
+const UsingPromise = () => (
+  <AsyncAwait>
+    { () => new Promise(resolve => setTimeout(() => {
+      resolve(<Example title='Hello world !'/>);
+    }, 2000)) }
+  </AsyncAwait>
+);
+
 storiesOf('react-async-await', module)
   .add('Basic', () => <Basic/>)
+  .add('Using a Promise', () => <UsingPromise/>)
   .add('Default value', () => <DefaultValue/>)
   .add('Using try/catch', () => <TryCatch/>);

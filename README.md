@@ -27,11 +27,15 @@ const Demo = () => (
 
 ### Examples
 
+#### Destructuring
+
 ```jsx
 <AsyncAwait>
   { async () => <Example { ...(await getProps()) }/> }
 </AsyncAwait>
 ```
+
+#### Try / catch
 
 ```jsx
 <AsyncAwait>
@@ -50,7 +54,17 @@ const Demo = () => (
 </AsyncAwait>
 ```
 
-### React Router v4 async route with transition
+#### Without async/await syntax, using a Promise
+
+```jsx
+<AsyncAwait>
+  { () => new Promise(resolve => setTimeout(() => {
+    resolve(<Example title='Hello world !'/>);
+  }, 2000)) }
+</AsyncAwait>
+```
+
+#### React Router v4 async route with transition
 
 Here we return an `<AsyncAwait/>` component in a React Router `<Match/>` children prop. When the route is matched, it will wait for the `db.find()` async function and then render the result. If the route changes, it will wait again, and rerender again. This will make the transition trigger only after the async function is complete.
 
